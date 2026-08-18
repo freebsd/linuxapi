@@ -1,0 +1,7 @@
+prefix=%%PREFIX%%
+includedir=${prefix}/include/linuxapi
+
+Name: linuxapi
+Description: Linux userspace headers compatibility shim
+Version: 1.0
+Cflags: -I${includedir}

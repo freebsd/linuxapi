@@ -1,0 +1,34 @@
+#[=======================================================================[.rst:
+linuxapi-config
+------
+
+This module defines the following variables:
+
+``linuxapi_INCLUDE_DIR``
+    Path to be used for target_include_directories() calls
+
+It will also define the following imported target:
+
+``linuxapi::linuxapi``
+
+Finally, a helper function is defined to enable linuxapi when compiling just
+a single source file:
+
+``linuxapi_enable_for(src)``
+
+#]=======================================================================]
+
+set(linuxapi_INCLUDE_DIR "%%PREFIX%%/include/linuxapi" CACHE PATH "Path to linuxapi headers")
+
+if (NOT TARGET linuxapi::linuxapi)
+    add_library(linuxapi::linuxapi UNKNOWN IMPORTED)
+    set_target_properties(linuxapi::linuxapi PROPERTIES
+        INTERFACE_INCLUDE_DIRECTORIES "${linuxapi_INCLUDE_DIR}"
+    )
+endif()
+
+if (NOT COMMAND linuxapi_enable_for)
+    function(linuxapi_enable_for src)
+        set_source_files_properties(${src} PROPERTIES INCLUDE_DIRECTORIES "${linuxapi_INCLUDE_DIR}")
+    endfunction()
+endif()
