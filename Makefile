@@ -18,6 +18,7 @@ install:
 
 	${MKDIR} ${DESTDIR}${PREFIX}/share/pkgconfig
 	${SED} 's|%%PREFIX%%|${PREFIX}|' linuxapi.pc.in > ${DESTDIR}${PREFIX}/share/pkgconfig/linuxapi.pc
+	${MKDIR} ${DESTDIR}${PREFIX}/share/cmake
 	${SED} 's|%%PREFIX%%|${PREFIX}|' linuxapi-config.cmake.in > ${DESTDIR}${PREFIX}/share/cmake/linuxapi-config.cmake
 
 test:
