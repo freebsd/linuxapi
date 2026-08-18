@@ -2,6 +2,7 @@ PREFIX?=	/usr/local
 DESTDIR?=
 
 CC?=		cc
+CMAKE?=		cmake
 CPIO?=		cpio
 FIND?=		find
 INSTALL?=	install
@@ -23,3 +24,8 @@ install:
 
 test:
 	${CC} -c -Ilinuxapi tests/smoketest.c -o /dev/null
+
+	${RM} -r tests/work
+	${CMAKE} -S tests/cmake -B tests/work
+	${MAKE} -C tests/work
+	${RM} -r tests/work
