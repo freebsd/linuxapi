@@ -17,6 +17,9 @@ COPYTREE_SHARE=	${SH} -c '(${FIND} -Ed $$1 $$3 | ${CPIO} -dumpl $$2 >/dev/null 2
 
 install:
 	${COPYTREE_SHARE} linuxapi ${DESTDIR}${PREFIX}
+.if !exists(/usr/include/dev/ntsync/ntsync.h)
+	${RM} ${DESTDIR}${PREFIX}/include/linuxapi/linux/ntsync.h
+.endif
 
 	${MKDIR} ${DESTDIR}${PREFIX}/share/pkgconfig
 	${SED} 's|%%PREFIX%%|${PREFIX}|' linuxapi.pc.in > ${DESTDIR}${PREFIX}/share/pkgconfig/linuxapi.pc
