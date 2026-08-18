@@ -7,6 +7,7 @@ CPIO?=		cpio
 FIND?=		find
 INSTALL?=	install
 MKDIR?=		mkdir -p
+RM?=		rm -f
 SED?=		sed
 SH?=		sh
 
