@@ -21,7 +21,7 @@ a single source file:
 set(linuxapi_INCLUDE_DIR "%%PREFIX%%/include/linuxapi" CACHE PATH "Path to linuxapi headers")
 
 if (NOT TARGET linuxapi::linuxapi)
-    add_library(linuxapi::linuxapi UNKNOWN IMPORTED)
+    add_library(linuxapi::linuxapi INTERFACE IMPORTED)
     set_target_properties(linuxapi::linuxapi PROPERTIES
         INTERFACE_INCLUDE_DIRECTORIES "${linuxapi_INCLUDE_DIR}"
     )
