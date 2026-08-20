@@ -16,7 +16,8 @@ COPYTREE_SHARE=	${SH} -c '(${FIND} -Ed $$1 $$3 | ${CPIO} -dumpl $$2 >/dev/null 2
 	-o -type f -exec ${SH} -c '\''cd '\''$$2'\'' && chmod 0644 "$$@"'\'' . {} + \)' COPYTREE_SHARE
 
 install:
-	${COPYTREE_SHARE} linuxapi ${DESTDIR}${PREFIX}
+	${MKDIR} ${DESTDIR}${PREFIX}/include
+	${COPYTREE_SHARE} linuxapi ${DESTDIR}${PREFIX}/include
 .if !exists(/usr/include/dev/ntsync/ntsync.h)
 	${RM} ${DESTDIR}${PREFIX}/include/linuxapi/linux/ntsync.h
 .endif
