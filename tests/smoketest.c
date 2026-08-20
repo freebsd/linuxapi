@@ -38,6 +38,7 @@ struct iphdr iphdr_var;
 #endif
 
 #include <linux/rtnetlink.h>
+struct sockaddr_nl sockaddr_nl_var;
 
 #include <linux/socket.h>
 
