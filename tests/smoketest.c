@@ -3,6 +3,15 @@
 #error linuxapi include failure
 #endif
 
+#include <sys/queue.h>
+#if !defined(CIRCLEQ_HEAD) || !defined(CIRCLEQ_ENTRY)
+#error linuxapi include failure
+#endif
+struct circleq_item {
+	CIRCLEQ_ENTRY(circleq_item) entries;
+};
+CIRCLEQ_HEAD(circleq_head, circleq_item) circleq_var;
+
 #include <sys/sendfile.h>
 
 #include <sys/shm.h>
