@@ -2,6 +2,9 @@
 #if !defined(MADV_DOFORK) || !defined(MAP_LOCKED)
 #error linuxapi include failure
 #endif
+#if !defined(MAP_HUGETLB) || !defined(MAP_HUGE_1GB) || !defined(MAP_HUGE_2MB)
+#error linuxapi include failure
+#endif
 
 #include <sys/queue.h>
 #if !defined(CIRCLEQ_HEAD) || !defined(CIRCLEQ_ENTRY)
