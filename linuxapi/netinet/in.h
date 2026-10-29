@@ -1,6 +1,6 @@
 /*
  * SPDX-License-Identifier: BSD-2-Clause
- * Copyright (c) 2026, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+ * Copyright 2026 Konstantin Belousov <kib@FreeBSD.org>. All rights reserved.
  */
 
 #ifndef __LINUXAPI_NETINET_IN_H__
